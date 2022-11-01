@@ -4,4 +4,4 @@ Kavi Nelakonda
 
 Jay Paek
 
-![Jay](/site_resources/JayPaek.jpg)
+![Jay](/website/site_resources/JayPaek.jpg)
