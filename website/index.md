@@ -8,4 +8,7 @@ Getting gains quickly is hard, especially when working out alone. Through the lo
 
 [11/2 Progress Report](11_2_Progress_Report.md)
 
+<img src="https://raw.githubusercontent.com/gman-ui/ECE196Project/main/website/site_resources/PCB_Design.png" width="200" height="200">
+
+
 [Resources](resources.md)
