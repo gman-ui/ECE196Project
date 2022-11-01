@@ -1,3 +1,5 @@
 Welcome! This is our webpage for our ECE 196 Project - Workout Buddy!
 
-Meet the Team:
+Meet the Team: (LINK)
+
+[11/2 Progress Report](11_2_Progress_Report.md)
