@@ -8,4 +8,4 @@ Getting gains quickly is hard, especially when working out alone. Through the lo
 
 [11/2 Progress Report](11_2_Progress_Report.md)
 
-[Resources](Resouces.md)
+[Resources](resources.md)
