@@ -4,4 +4,4 @@ Kavi Nelakonda
 
 Jay Paek
 
-<img src="/website/site_resources/JayPaek.jpg" width="300" height="400">
+<img src="/website/site_resources/JayPaek.jpg" width="150" height="200">
