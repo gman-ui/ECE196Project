@@ -14,6 +14,6 @@ Getting gains quickly is hard, especially when working out alone. Through the lo
 
 <img src="https://github.com/gman-ui/ECE196Project/tree/main/website/site_resources/PCB_Design.png" width="200" height="200"/>
 
-<img src="https://github.com/gman-ui/ECE196Project/tree/main/website/site_resources/CAD.png" width="200" height="200">
+<img src="https://github.com/gman-ui/ECE196Project/tree/main/website/site_resources/CAD.png" width="200" height="200"/>
 
 [Resources](website/resources.md)
