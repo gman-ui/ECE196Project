@@ -56,6 +56,7 @@ struct ContentView: View {
             }
             
             Button {
+                workout.repCount = 0
                 isPresented.toggle()
             } label: {
                 Text("Start The Workout!")
@@ -63,7 +64,7 @@ struct ContentView: View {
                     .bold()
             }
             .fullScreenCover(isPresented: $isPresented){
-                FeedbackView(choice: workout.exercise, repCount: 0, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
+                FeedbackView(choice: workout.exercise, repCount: workout.repCount, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
                     .environmentObject(workout)
             }
             .buttonStyle(.borderedProminent)
