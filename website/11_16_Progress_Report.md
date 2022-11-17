@@ -1,4 +1,4 @@
-Here is the progress report for 11/2.
+Here is the progress report for 11/16.
 
 [Link to Video Script](https://docs.google.com/document/d/12xjIH9h1Yf2a5tv5ZBKn_J9YzUxdqZ5QVYdQlYmq8yU/edit?usp=sharing)
 
