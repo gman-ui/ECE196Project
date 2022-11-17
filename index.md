@@ -11,7 +11,7 @@ Getting gains quickly is hard, especially when working out alone. Through the lo
 
 [Meet the Team](website/AboutTeam.md)
 
-[11/2 Progress Report](website/11_2_Progress_Report.md)
+[11/16 Progress Report](website/11_16_Progress_Report.md)
 
 <img src="website/site_resources/PCB_Design.png" width="200" height="200"/>
 
