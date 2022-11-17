@@ -25,7 +25,9 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     var characteristics: [String: CBCharacteristic] = [:]
 
     let characteristic_key: [CBUUID: String] = [
-        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1214"): "light"
+        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1214"): "light",
+        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1212"): "x"
+        
     ]
 //    let characteristic_key: [CBUUID: String] = [
 //        CBUUID(string: "57393a70-64a7-4d66-9892-9280a6b68bfd"): "x",
@@ -40,7 +42,8 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     var repQuality: Double = 1
     @Published var feedback: String = ""
     
-    private var x: Double = 0
+    @Published var lightOn: Bool = false
+    @Published var x: Double = 0
     private var y: Double = 0
     private var z: Double = 0
     
@@ -169,9 +172,9 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             }
             
             // spawn daemon updater thread
-            DispatchQueue.global().async {
-                self.updatePeriodic()
-            }
+//            DispatchQueue.global().async {
+//                self.updatePeriodic()
+//            }
         }
     }
     
@@ -180,11 +183,13 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             
             switch characteristic_key[characteristic.uuid] {
             case "x":
-                x = loadColor(data: data)
+                x = loadLocation(data: data)
             case "y":
-                y = loadColor(data: data)
+                y = loadLocation(data: data)
             case "z":
-                z = loadColor(data: data)
+                z = loadLocation(data: data)
+            case "light":
+                lightOn = loadLight(data: data)
             default:
                 print("Updated value for invalid characteristic.")
             }
@@ -194,22 +199,38 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
         }
     
     
-    private func updatePeriodic() {
-        while connected {
-            Thread.sleep(forTimeInterval: 0.25)
-            
-            for (key, value) in zip(["x", "y", "z"], [x, y, z]) {
-                guard let _ = peripheral else { return }
-                peripheral?.writeValue(Data([UInt8(value * 255)]), for: characteristics[key]!, type: .withResponse)
-            }
-        }
-    }
+//    private func updatePeriodic() {
+//        while connected {
+//            Thread.sleep(forTimeInterval: 0.25)
+//
+//            for (key, value) in zip(["x", "y", "z"], [x, y, z]) {
+//                guard let _ = peripheral else { return }
+//                peripheral?.writeValue(Data([UInt8(value * 255)]), for: characteristics[key]!, type: .withResponse)
+//            }
+//        }
+//    }
     
-    private func loadColor(data: Data) -> Double {
+    private func loadLocation(data: Data) -> Double {
         return Double(
             data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
                 return rawPtr.load(as: UInt8.self)
             })
-        ) / 255.0
+        ) /// 255.0
+    }
+    
+    private func getX(data: Data) -> UInt8{
+        return UInt8(data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
+            return rawPtr.load(as: UInt8.self)
+        }))
+    }
+    
+    func writeLight(value: Bool) {        
+        peripheral?.writeValue(Data([UInt8(value ? 1 : 0)]), for: characteristics["light"]!, type: .withResponse)
+    }
+    
+    private func loadLight(data: Data) -> Bool {
+        return data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
+            return rawPtr.load(as: UInt8.self)
+        }) == 1 ? true : false
     }
 }
