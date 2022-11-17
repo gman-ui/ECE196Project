@@ -31,7 +31,7 @@ struct ContentView: View {
                         }
                     }.pickerStyle(MenuPickerStyle())
                 }
-
+                
                 HStack{
                     Text("Pick a location for the strap: ").fontWeight(.bold)
                     Spacer()
@@ -43,17 +43,25 @@ struct ContentView: View {
                     }.pickerStyle(MenuPickerStyle())
                 }
                 
-            /*    HStack{
-                    Text("What kind of feedback do you want?").fontWeight(.bold)
-                    Spacer()
-                    Picker("", selection: $workout.feedbackP){
-                        Text("Positive")
-                            .tag(true)
-                        Text("Negative")
-                            .tag(false)
-                    }.pickerStyle(MenuPickerStyle())
-                }*/
+                /*    HStack{
+                 Text("What kind of feedback do you want?").fontWeight(.bold)
+                 Spacer()
+                 Picker("", selection: $workout.feedbackP){
+                 Text("Positive")
+                 .tag(true)
+                 Text("Negative")
+                 .tag(false)
+                 }.pickerStyle(MenuPickerStyle())
+                 }*/
+
+                HStack{
+                    Toggle(isOn: $workout.feedbackP){
+                        Text("Light On").fontWeight(.bold)
+                    }
+                }
             }
+            
+            
             
             Button {
                 workout.repCount = 0

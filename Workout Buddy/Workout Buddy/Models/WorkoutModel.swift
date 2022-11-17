@@ -25,10 +25,13 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     var characteristics: [String: CBCharacteristic] = [:]
 
     let characteristic_key: [CBUUID: String] = [
-        CBUUID(string: "57393a70-64a7-4d66-9892-9280a6b68bfd"): "x",
-        CBUUID(string: "acde099b-8769-4d12-a924-4aef77cdcb5f"): "y",
-        CBUUID(string: "411c9a4e-69e5-4b95-b3b1-5fae8b071514"): "z"
+        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1214"): "light"
     ]
+//    let characteristic_key: [CBUUID: String] = [
+//        CBUUID(string: "57393a70-64a7-4d66-9892-9280a6b68bfd"): "x",
+//        CBUUID(string: "acde099b-8769-4d12-a924-4aef77cdcb5f"): "y",
+//        CBUUID(string: "411c9a4e-69e5-4b95-b3b1-5fae8b071514"): "z"
+//    ]
     
     // marking something as @Published will make it update in the views
     @Published var repCount: Int = 0
@@ -55,19 +58,15 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     func randomChoiceP() -> String{
         feedbackPos.randomElement()!
     }
-    
     func randomChoiceN() -> String{
         feedbackNeg.randomElement()!
     }
-    
     func increaseRep() -> Void{
         repCount += 1
     }
-    
     func setExercise(e : String) -> Void{
         exercise = e
     }
-    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOff:
