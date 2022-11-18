@@ -7,3 +7,7 @@ Here is the progress report for 11/16.
 [Link to Slides](https://docs.google.com/presentation/d/1JhQONRMlsEj1D5vUSwP1L23lphcnRkILb456B_p8MZ8/edit?usp=sharing)
 
 [Link to Poster](https://docs.google.com/presentation/d/1-C60xuRbaey6zCW9TTUjxTnHt_vZGkDG-HUhqBpdmNE/edit?usp=sharing)
+
+[Link to Workshop Outline Presentation Video]
+
+[Link to Workshop Outline Presentation Slides](https://docs.google.com/presentation/d/11qAKYQCkCDuD2L6GYvt_5XhxrikFkKzpVDz3-EzisU0/edit?usp=sharing)
