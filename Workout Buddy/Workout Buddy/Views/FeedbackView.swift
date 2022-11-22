@@ -43,6 +43,7 @@ struct FeedbackView: View {
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     Text(feedback)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold()
+                    Text("Push the button on the Watch to stop the workout!")
                     Spacer()
                 }
                 .background(.background)

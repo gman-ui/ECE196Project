@@ -44,8 +44,10 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     
     @Published var lightOn: Bool = false
     @Published var x: Double = 0
-    private var y: Double = 0
-    private var z: Double = 0
+
+    let results = UserDefaults.standard
+    @Published var flipsOn: Int = 0
+
     
     @Published var exercise: String = "Chest Press"
     let exercises: [String] = ["Chest Press", "Squats", "Deadlifts", "Shoulder Press"]
@@ -172,9 +174,9 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             }
             
             // spawn daemon updater thread
-//            DispatchQueue.global().async {
-//                self.updatePeriodic()
-//            }
+            DispatchQueue.global().async {
+                self.updatePeriodic()
+            }
         }
     }
     
@@ -184,10 +186,6 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             switch characteristic_key[characteristic.uuid] {
             case "x":
                 x = loadLocation(data: data)
-            case "y":
-                y = loadLocation(data: data)
-            case "z":
-                z = loadLocation(data: data)
             case "light":
                 lightOn = loadLight(data: data)
             default:
@@ -199,38 +197,53 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
         }
     
     
-//    private func updatePeriodic() {
-//        while connected {
-//            Thread.sleep(forTimeInterval: 0.25)
-//
-//            for (key, value) in zip(["x", "y", "z"], [x, y, z]) {
-//                guard let _ = peripheral else { return }
-//                peripheral?.writeValue(Data([UInt8(value * 255)]), for: characteristics[key]!, type: .withResponse)
-//            }
-//        }
-//    }
+    private func updatePeriodic() {
+        while connected {
+            Thread.sleep(forTimeInterval: 0.25)
+            
+            
+            guard let data = characteristics["x"]?.value else { return }
+            x = loadLocation(data: data)
+            print("blah blah")
+            
+        }
+    }
     
     private func loadLocation(data: Data) -> Double {
         return Double(
             data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
                 return rawPtr.load(as: UInt8.self)
             })
-        ) /// 255.0
+        )
     }
     
-    private func getX(data: Data) -> UInt8{
-        return UInt8(data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
-            return rawPtr.load(as: UInt8.self)
-        }))
-    }
+
     
     func writeLight(value: Bool) {        
         peripheral?.writeValue(Data([UInt8(value ? 1 : 0)]), for: characteristics["light"]!, type: .withResponse)
+        if value {
+            flipsOn += 1
+            let time = Date().formatted()
+            print(time)
+            print("\(flipsOn)")
+        }
     }
     
     private func loadLight(data: Data) -> Bool {
-        return data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
-            return rawPtr.load(as: UInt8.self)
-        }) == 1 ? true : false
+        
+        let num = data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
+                        return rawPtr.load(as: UInt8.self)
+                    })
+        
+        if num == 1 {
+            let time = Date().formatted()
+            print(time)
+            let array = [flipsOn, Int(x)]
+            results.set(array, forKey: time)
+            return true
+        } else {
+            return false
+        }
+
     }
 }
