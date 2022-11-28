@@ -59,7 +59,19 @@ struct ContentView: View {
                     
                 }
                 
-                
+                List{
+                    HStack{
+                        Text("Reps from the previous exercise:").fontWeight(.bold)
+                        Spacer()
+                        Text(workout.repCount == 0 ? "" : "\(workout.repCount)")
+                    }
+                    
+                    HStack{
+                        Text("Quality of last exercise:").fontWeight(.bold)
+                        Spacer()
+                        Text(workout.repQuality == 0.00 ? "": "\(String(format: "%.0f", workout.repQuality * 100))%")
+                    }
+                }
                 
                 Button {
                     workout.repCount = 0

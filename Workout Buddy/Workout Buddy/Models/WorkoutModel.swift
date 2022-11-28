@@ -39,7 +39,7 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     @Published var repCount: Int = 0
     @Published var wristLocation: Bool = true
     @Published var feedbackP: Bool = true
-    var repQuality: Double = 1
+    var repQuality: Double = 0
     @Published var feedback: String = ""
     
     @Published var lightOn: Bool = false
