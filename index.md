@@ -28,6 +28,10 @@ We are developing a cheap wearable device that tracks repetitions.
 <img src= "website/site_resources/SEEED.jpg" width="200" height="200"/>
 </p>
 
+<p align="center">
+PCB Design         CAD Model + PCB         SEEED nRF52480 Sense
+</p>
+
 ### Design of Physical Device: 
 Using a Seeed nRF52840, we were able to create a compact bluetooth system to measure repetitions via embedded acceleration calculations.
 
