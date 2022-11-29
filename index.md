@@ -5,7 +5,7 @@ UC San Diego - Jacobs School of Engineering
 Electrical and Computering Engineering
 Department of Athletics
 
-### [Meet the Team](website/AboutTeam.md)
+## [Meet the Team](website/AboutTeam.md)
 
 ### Problem Statement: 
 
@@ -31,5 +31,5 @@ We are developing a cheap wearable device that tracks repetitions.
 #### [11/16 Progress Report](website/11_16_Progress_Report.md)
 
 
-[Resources](website/resources.md)
+### [Resources](website/resources.md)
 
