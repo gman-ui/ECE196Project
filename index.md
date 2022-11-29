@@ -5,19 +5,19 @@ UC San Diego - Jacobs School of Engineering
 Electrical and Computering Engineering
 Department of Athletics
 
-Getting gains quickly is hard, especially when working out alone. Through the loud music and grunts, we want to optimize workouts by tracking the quantity and quality of repetitions.
+Making “gains” in the gym is hard, especially when working out alone. Through loud music and intense exercises, we want to optimize workouts by tracking the quantity and quality of repetitions.
 
-We are creating a cheap wearable / attachable device with a accelerometer to improve workout routines. 
+We are developing a cheap wearable device that tracks repetitions.
+
+### Design Flow
 
 <p align="center">
 <img src="website/site_resources/FlowChart.png" width="500" height="400"/>
 </p>
 
-[Meet the Team](website/AboutTeam.md)
+### [Meet the Team](website/AboutTeam.md)
 
-[11/16 Progress Report](website/11_16_Progress_Report.md)
-
-### CAD and PCB Designs:
+### Components Used:
 
 <p align="center">
 <img src="website/site_resources/PCB_Design.png" width="200" height="200"/>
@@ -25,4 +25,8 @@ We are creating a cheap wearable / attachable device with a accelerometer to imp
 </p>
 
 
+#### [11/16 Progress Report](website/11_16_Progress_Report.md)
+
+
 [Resources](website/resources.md)
+
