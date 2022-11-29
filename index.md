@@ -17,7 +17,7 @@ We are developing a cheap wearable device that tracks repetitions.
 ### Design Flow:
 
 <p align="center">
-<img src="website/site_resources/FlowChart.png" width="500" height="400"/>
+<img src="website/site_resources/FlowChart.png" width="600" height="480"/>
 </p>
 
 ### Components Used:
