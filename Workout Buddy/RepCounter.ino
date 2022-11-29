@@ -8,9 +8,6 @@ BLEUnsignedCharCharacteristic RepCountChar("2A19", BLERead | BLENotify); //Chara
 LSM6DS3 myIMU(I2C_MODE, 0x6A); //initialize IMU
 
 double sensitivity = 3; //modify this value to adjust sensitivity
-double xval[100] = {0}; //store previous values for comparsion reasons
-double yval[100] = {0};
-double zval[100] = {0};
 int reps, flag = 0;
 
 void setup() {
