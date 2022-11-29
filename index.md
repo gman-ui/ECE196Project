@@ -41,6 +41,13 @@ Using SwiftUI, we created an iOS app that provides monitoring of the user’s re
 #### [11/16 Progress Report](website/11_16_Progress_Report.md)
 
 ### Final Product:
+<p align="center">
+<img src="website/site_resources/FinalProduct.png" width="400" height="400"/>
+ </p>
+<p align="center">
+ <img src="website/site_resources/PCB_Design.png" width="325" height="650"/>
+ <img src="website/site_resources/PCB_Design.png" width="325" height="650"/>
+</p>
 
 ### Going Forward:
 Overall, we are satisfied with how our project turned out, given the time constraint. If we had more than 5 weeks, we would want to:
