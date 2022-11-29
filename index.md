@@ -1,4 +1,4 @@
-# Welcome!
+## Welcome!
 
 This is our webpage for our ECE 196 Project - Workout Buddy!
 UC San Diego - Jacobs School of Engineering
@@ -16,6 +16,8 @@ We are creating a cheap wearable / attachable device with a accelerometer to imp
 [Meet the Team](website/AboutTeam.md)
 
 [11/16 Progress Report](website/11_16_Progress_Report.md)
+
+### Designs:
 
 <p align="center">
 <img src="website/site_resources/PCB_Design.png" width="200" height="200"/>
