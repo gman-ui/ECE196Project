@@ -5,17 +5,20 @@ UC San Diego - Jacobs School of Engineering
 Electrical and Computering Engineering
 Department of Athletics
 
+### [Meet the Team](website/AboutTeam.md)
+
+### Problem Statement: 
+
 Making “gains” in the gym is hard, especially when working out alone. Through loud music and intense exercises, we want to optimize workouts by tracking the quantity and quality of repetitions.
 
+### Solution:
 We are developing a cheap wearable device that tracks repetitions.
 
-### Design Flow
+### Design Flow:
 
 <p align="center">
 <img src="website/site_resources/FlowChart.png" width="500" height="400"/>
 </p>
-
-### [Meet the Team](website/AboutTeam.md)
 
 ### Components Used:
 
@@ -24,7 +27,7 @@ We are developing a cheap wearable device that tracks repetitions.
 <img src= "website/site_resources/CAD.png" width="200" height="200"/>
 </p>
 
-
+### Updates:
 #### [11/16 Progress Report](website/11_16_Progress_Report.md)
 
 
