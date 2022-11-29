@@ -12,4 +12,6 @@ Jay is a first year Electrical Engineering major!
 
 ### Kavi Nelakonda
 
+<img src="https://raw.githubusercontent.com/gman-ui/ECE196Project/main/website/site_resources/Kavi.jpg" width="150" height="200">
+
 Kavi is a first year Computer Science transfer!
