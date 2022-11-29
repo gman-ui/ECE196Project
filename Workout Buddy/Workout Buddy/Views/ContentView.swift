@@ -9,11 +9,8 @@ import SwiftUI
 import CoreBluetooth
 
 struct ContentView: View {
-    //@State var exerciseChoice: String = "Chest Press"
-    //private let locations: [String] = ["Wrist", "Bar"]
-    //@State var wristLocation: Bool = true
+
     @State var isPresented: Bool = false
-    //@State var feedbackP: Bool = true
     
     @StateObject var workout = WorkoutModel()
     
@@ -32,60 +29,74 @@ struct ContentView: View {
                         }.pickerStyle(MenuPickerStyle())
                     }
                     
-                    HStack{
-                        Text("Pick a location for the strap: ").fontWeight(.bold)
-                        Spacer()
-                        Picker("", selection: $workout.wristLocation){
-                            Text("Wrist")
-                                .tag(true)
-                            Text("Bar")
-                                .tag(false)
-                        }.pickerStyle(MenuPickerStyle())
-                    }
+//                    HStack{
+//                        Text("Pick a location for the strap: ").fontWeight(.bold)
+//                        Spacer()
+//                        Picker("", selection: $workout.wristLocation){
+//                            Text("Wrist")
+//                                .tag(true)
+//                            Text("Bar")
+//                                .tag(false)
+//                        }.pickerStyle(MenuPickerStyle())
+//                    }
                     
                     HStack{
                         Toggle(isOn: $workout.lightOn){
-                            Text("Light On").fontWeight(.bold)
+                            Text("Wrist Mode (beta)").fontWeight(.bold)
                         }
                         .onChange(of: workout.lightOn) { newValue in
                             workout.writeLight(value: newValue)
-                            
+
                             guard !newValue else { return }
-                            workout.peripheral?.readValue(for: workout.characteristics["x"]!)
-                            print("x: \(workout.x)")
-                            
                         }
+                    }
+                    HStack{
+                        Text("Receive Analysis").fontWeight(.bold)
+                        Spacer()
+
+                        Button("Get Data", action: {
+                             workout.peripheral?.readValue(for: workout.characteristics["x"]!)
+                            workout.updateRep(values: workout.x)
+                            workout.peripheral?.readValue(for: workout.characteristics["quality"]!)
+                            workout.updateQuality(values: workout.quality)
+                        }
+                               ).buttonStyle(.borderedProminent)
+                        
                     }
                     
                 }
                 
                 List{
-                    HStack{
+                    HStack{ //displays repCount
                         Text("Reps from the previous exercise:").fontWeight(.bold)
                         Spacer()
                         Text(workout.repCount == 0 ? "" : "\(workout.repCount)")
                     }
                     
-                    HStack{
+                    HStack{ //displays repQuality
                         Text("Quality of last exercise:").fontWeight(.bold)
                         Spacer()
-                        Text(workout.repQuality == 0.00 ? "": "\(String(format: "%.0f", workout.repQuality * 100))%")
+                        Text(workout.repQuality == 0 ? "": "\(String(workout.repQuality))%")
+                    }
+                    
+                    HStack{
+                        Text("x: \(workout.x)")
                     }
                 }
                 
-                Button {
-                    workout.repCount = 0
-                    isPresented.toggle()
-                } label: {
-                    Text("Start The Workout!")
-                        .font(.title2)
-                        .bold()
-                }
-                .fullScreenCover(isPresented: $isPresented){
-                    FeedbackView(choice: workout.exercise, repCount: workout.repCount, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
-                        .environmentObject(workout)
-                }
-                .buttonStyle(.borderedProminent)
+//                Button {
+//                    workout.repCount = 0
+//                    isPresented.toggle()
+//                } label: {
+//                    Text("Start The Workout!")
+//                        .font(.title2)
+//                        .bold()
+//                }
+//                .fullScreenCover(isPresented: $isPresented){
+//                    FeedbackView(choice: workout.exercise, repCount: workout.repCount, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
+//                        .environmentObject(workout)
+//                }
+//                .buttonStyle(.borderedProminent)
             }
         } else {
             VStack{

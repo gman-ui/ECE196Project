@@ -54,20 +54,7 @@ struct FeedbackView: View {
                         feedback = workout.randomChoiceN()
                     }
                 }
-            /*
-              Text("Feedback Type").font(.title3).bold()
-                HStack{
-                    Spacer()
-                    //not working as intended
-                    Picker("", selection: $workout.feedbackP) {
-                        Text("Positive")
-                            .tag(true)
-                        Text("Negative")
-                            .tag(false)
-                    }
-                    .pickerStyle(.segmented)
 
-                }*/
                 
                 Button {
                     isPresented.toggle()

@@ -26,24 +26,21 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
 
     let characteristic_key: [CBUUID: String] = [
         CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1214"): "light",
-        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1212"): "x"
+        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1212"): "x",
+        CBUUID(string: "19B10001-E8F2-537E-4F6C-D104768A1213"): "quality"
         
     ]
-//    let characteristic_key: [CBUUID: String] = [
-//        CBUUID(string: "57393a70-64a7-4d66-9892-9280a6b68bfd"): "x",
-//        CBUUID(string: "acde099b-8769-4d12-a924-4aef77cdcb5f"): "y",
-//        CBUUID(string: "411c9a4e-69e5-4b95-b3b1-5fae8b071514"): "z"
-//    ]
-    
+
     // marking something as @Published will make it update in the views
     @Published var repCount: Int = 0
     @Published var wristLocation: Bool = true
     @Published var feedbackP: Bool = true
-    var repQuality: Double = 0
+    @Published var repQuality: Int = 0
     @Published var feedback: String = ""
     
     @Published var lightOn: Bool = false
     @Published var x: Double = 0
+    @Published var quality: Int = 0
 
     let results = UserDefaults.standard
     @Published var flipsOn: Int = 0
@@ -174,7 +171,10 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             }
             
             // spawn daemon updater thread
-            DispatchQueue.global().async {
+//            DispatchQueue.global().async {
+//                self.updatePeriodic()
+//            }
+            DispatchQueue.global().sync {
                 self.updatePeriodic()
             }
         }
@@ -186,8 +186,12 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             switch characteristic_key[characteristic.uuid] {
             case "x":
                 x = loadLocation(data: data)
+                updateRep(values: x)
             case "light":
                 lightOn = loadLight(data: data)
+            case "quality":
+                quality = Int(loadLocation(data: data))
+                updateQuality(values: quality)
             default:
                 print("Updated value for invalid characteristic.")
             }
@@ -204,8 +208,6 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
             
             guard let data = characteristics["x"]?.value else { return }
             x = loadLocation(data: data)
-            print("blah blah")
-            
         }
     }
     
@@ -217,15 +219,10 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
         )
     }
     
-
-    
     func writeLight(value: Bool) {        
         peripheral?.writeValue(Data([UInt8(value ? 1 : 0)]), for: characteristics["light"]!, type: .withResponse)
         if value {
             flipsOn += 1
-            let time = Date().formatted()
-            print(time)
-            print("\(flipsOn)")
         }
     }
     
@@ -244,6 +241,25 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
         } else {
             return false
         }
+    }
+    
+    func switchLight() -> Void {
+        if lightOn{
+            lightOn = false
+        } else {
+            lightOn = true
+        }
+    }
+    
+    func updateRep(values: Double){
+        repCount = Int(values)
+        print(repCount)
+        objectWillChange.send()
+    }
+    
+    func updateQuality(values: Int){
+        repQuality = values
+        objectWillChange.send()
 
     }
 }
