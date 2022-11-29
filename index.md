@@ -21,8 +21,6 @@ We are creating a cheap wearable / attachable device with a accelerometer to imp
 
 <p align="center">
 <img src="website/site_resources/PCB_Design.png" width="200" height="200"/>
-</p>
-<p align="center">
 <img src= "website/site_resources/CAD.png" width="200" height="200"/>
 </p>
 
