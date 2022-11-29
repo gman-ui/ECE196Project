@@ -5,7 +5,7 @@ UC San Diego - Jacobs School of Engineering
 Electrical and Computering Engineering
 Department of Athletics
 
-## [Meet the Team](website/AboutTeam.md)
+### [Meet the Team](website/AboutTeam.md)
 
 ### Problem Statement: 
 Making “gains” in the gym is hard, especially when working out alone. Through loud music and intense exercises, we want to optimize workouts by tracking the quantity and quality of repetitions.
