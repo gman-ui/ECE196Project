@@ -9,7 +9,7 @@ import SwiftUI
 import CoreBluetooth
 
 struct ContentView: View {
-
+    
     @State var isPresented: Bool = false
     
     @StateObject var workout = WorkoutModel()
@@ -29,16 +29,16 @@ struct ContentView: View {
                         }.pickerStyle(MenuPickerStyle())
                     }
                     
-//                    HStack{
-//                        Text("Pick a location for the strap: ").fontWeight(.bold)
-//                        Spacer()
-//                        Picker("", selection: $workout.wristLocation){
-//                            Text("Wrist")
-//                                .tag(true)
-//                            Text("Bar")
-//                                .tag(false)
-//                        }.pickerStyle(MenuPickerStyle())
-//                    }
+                    //                    HStack{
+                    //                        Text("Pick a location for the strap: ").fontWeight(.bold)
+                    //                        Spacer()
+                    //                        Picker("", selection: $workout.wristLocation){
+                    //                            Text("Wrist")
+                    //                                .tag(true)
+                    //                            Text("Bar")
+                    //                                .tag(false)
+                    //                        }.pickerStyle(MenuPickerStyle())
+                    //                    }
                     
                     HStack{
                         Toggle(isOn: $workout.lightOn){
@@ -46,21 +46,21 @@ struct ContentView: View {
                         }
                         .onChange(of: workout.lightOn) { newValue in
                             workout.writeLight(value: newValue)
-
+                            
                             guard !newValue else { return }
                         }
                     }
                     HStack{
                         Text("Receive Analysis").fontWeight(.bold)
                         Spacer()
-
+                        
                         Button("Get Data", action: {
-                             workout.peripheral?.readValue(for: workout.characteristics["x"]!)
+                            workout.peripheral?.readValue(for: workout.characteristics["x"]!)
                             workout.updateRep(values: workout.x)
                             workout.peripheral?.readValue(for: workout.characteristics["quality"]!)
                             workout.updateQuality(values: workout.quality)
                         }
-                               ).buttonStyle(.borderedProminent)
+                        ).buttonStyle(.borderedProminent)
                         
                     }
                     
@@ -84,19 +84,19 @@ struct ContentView: View {
                     }
                 }
                 
-//                Button {
-//                    workout.repCount = 0
-//                    isPresented.toggle()
-//                } label: {
-//                    Text("Start The Workout!")
-//                        .font(.title2)
-//                        .bold()
-//                }
-//                .fullScreenCover(isPresented: $isPresented){
-//                    FeedbackView(choice: workout.exercise, repCount: workout.repCount, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
-//                        .environmentObject(workout)
-//                }
-//                .buttonStyle(.borderedProminent)
+                //                Button {
+                //                    workout.repCount = 0
+                //                    isPresented.toggle()
+                //                } label: {
+                //                    Text("Start The Workout!")
+                //                        .font(.title2)
+                //                        .bold()
+                //                }
+                //                .fullScreenCover(isPresented: $isPresented){
+                //                    FeedbackView(choice: workout.exercise, repCount: workout.repCount, repQuality: 1, positive: workout.feedbackP, isPresented: $isPresented)
+                //                        .environmentObject(workout)
+                //                }
+                //                .buttonStyle(.borderedProminent)
             }
         } else {
             VStack{

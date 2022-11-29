@@ -30,11 +30,11 @@ struct FeedbackView: View {
             
             Spacer()
             VStack {
-
+                
                 Text(choice).font(.title).bold()
                 VStack {
                     Spacer()
-
+                    
                     Text("💪🏽").font(.largeTitle).imageScale(.large)
                     Text("Rep number: **\(String(workout.repCount))**")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -54,7 +54,7 @@ struct FeedbackView: View {
                         feedback = workout.randomChoiceN()
                     }
                 }
-
+                
                 
                 Button {
                     isPresented.toggle()
@@ -67,7 +67,7 @@ struct FeedbackView: View {
             }
             Spacer()
         }
-
+        
     }
 }
 
