@@ -1,6 +1,6 @@
 ### Rafe Gerson
 
-<img src="https://raw.githubusercontent.com/gman-ui/ECE196Project/main/website/site_resources/RafeGerson.jpg" width="175" height="200">
+<img src="https://raw.githubusercontent.com/gman-ui/ECE196Project/main/website/site_resources/RafeGerson.jpg" width="185" height="200">
 
 Rafe is a second year Computer Engineering major!
 
