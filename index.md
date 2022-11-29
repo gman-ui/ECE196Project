@@ -40,10 +40,15 @@ Using SwiftUI, we created an iOS app that provides monitoring of the user’s re
 
 ### Going Forward:
 Overall, we are satisfied with how our project turned out, given the time constraint. If we had more than 5 weeks, we would want to:
+
   Improve rep counting algorithm
+  
   Reduce cost and size further
+  
   Outsource less components
+  
   Integrate OLED display
+  
   Monitor other elements while minimizing cost and size
 
 ### [Resources](website/resources.md)
