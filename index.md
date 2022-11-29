@@ -21,15 +21,11 @@ We are developing a cheap wearable device that tracks repetitions.
 </p>
 
 ### Components Used:
-
+PCB Design(Left), CAD Model + PCB (Middle), Seeed nRF52480 Sense (Right)
 <p align="center">
 <img src="website/site_resources/PCB_Design.png" width="200" height="200"/>
 <img src= "website/site_resources/CAD.png" width="200" height="200"/>
 <img src= "website/site_resources/SEEED.jpg" width="200" height="200"/>
-</p>
-
-<p align="center">
-PCB Design         CAD Model + PCB         SEEED nRF52480 Sense
 </p>
 
 ### Design of Physical Device: 
