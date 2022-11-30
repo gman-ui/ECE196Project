@@ -49,9 +49,7 @@ Using SwiftUI, we created an iOS app that provides monitoring of the user’s re
  <img src="website/site_resources/WorkoutBuddyPicTwo.png" width="325" height="650"/>
 </p>
 
-### Final Presentation:
-<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://github.com/gman-ui/ECE196Project/tree/main/website/site_resources]' width="800" height="450"/>
-
+### [Final Presentation](https://docs.google.com/presentation/d/1JhQONRMlsEj1D5vUSwP1L23lphcnRkILb456B_p8MZ8/edit#slide=id.p)
 
 ### Video Demonstration:
 
