@@ -50,6 +50,8 @@ Using SwiftUI, we created an iOS app that provides monitoring of the user’s re
 </p>
 
 ### Final Presentation:
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://github.com/gman-ui/ECE196Project/tree/main/website/site_resources]' width="800" height="450"/>
+
 
 ### Video Demonstration:
 
