@@ -51,7 +51,7 @@ Using SwiftUI, we created an iOS app that provides monitoring of the user’s re
 
 ### [Final Presentation](https://docs.google.com/presentation/d/1JhQONRMlsEj1D5vUSwP1L23lphcnRkILb456B_p8MZ8/edit#slide=id.p)
 
-### Video Demonstration:
+### [Video Demonstration](https://drive.google.com/file/d/1s5_zrb8chxxecz5kb8jw5V9imzpqXm9z/view?usp=sharing)
 
 ### Going Forward:
 Overall, we are satisfied with how our project turned out, given the time constraint. If we had more than 5 weeks, we would want to:
