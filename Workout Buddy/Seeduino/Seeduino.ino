@@ -140,11 +140,13 @@ void loop() {
     float ax;
     float az;
 
-    ax = myIMU.readFloatAccelX() - 1.00;
-    az = myIMU.readFloatAccelZ() - 1.00;
+    ax = myIMU.readFloatAccelX();
+    ay = myIMU.readFloatAccelY();
+    az = myIMU.readFloatAccelZ();
+    a = sqrt(ax*ax + ay*ay + az*az) - 1;
     if (moving == true) //previously moved
     {
-      if ((switchCharacteristic.value() == 1 && stopped(ax))  || (switchCharacteristic.value() == 0 && stopped(az))) //now stopped
+      if ((switchCharacteristic.value() == 1 && stopped(a))  || (switchCharacteristic.value() == 0 && stopped(az))) //now stopped
       {
         previous++;
         if (previous >=15 )
@@ -164,7 +166,7 @@ void loop() {
     
     if (moving == false) //previously stopped
     {
-      if ((switchCharacteristic.value() == 1 && !stopped(ax))  || (switchCharacteristic.value() == 0 && !stopped(az))) //now moving
+      if ((switchCharacteristic.value() == 1 && !stopped(a))  || (switchCharacteristic.value() == 0 && !stopped(az))) //now moving
       {
         previous++;
         if (previous >=15)
