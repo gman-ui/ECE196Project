@@ -37,6 +37,16 @@ Using a Seeed nRF52840, we were able to create a compact bluetooth system to mea
 ### Software Application: 
 Using SwiftUI, we created an iOS app that provides monitoring of the user’s repetitions based on data sent by the device and provides positive or negative comments based on the user’s preference. 
 
+### Behind the Arduino
+How exactly does the IMU track repetitions? 
+The IMU can track acceleration in three direction, and we can unify these three quantities into another quantity known as the magnitude.
+If we square each of the x, y, and z, accelerations, we can get the total acceleration in a certain direction. 
+One important note is the there will always be a magnitude of 1 present due to the normalized force of gravity calculated by the accelerometer. 
+Since we are dealing with low acceleration states, we can subtract 1 from the total magnitude and make calculations with minimal error. 
+The meat of the code lies in the "ticks" of the repetition. 
+There are four points where acceleration will be 0, the bottom of the rep, the middle of the concentric motion, the top of the concentric motion, and the middle of the eccentric motion. This is because we are encouraging paused repetitions which imcreases muscle usage. 
+The condtionals uses these checkpoints and keeps count whether it is at the top or bottom of the rep. Then divides this value by two to track the number of reps. 
+
 ### Updates:
 #### [11/16 Progress Report](website/11_16_Progress_Report.md)
 
