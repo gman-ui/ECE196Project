@@ -44,8 +44,8 @@ If we square each of the x, y, and z, accelerations, we can get the total accele
 One important note is the there will always be a magnitude of 1 present due to the normalized force of gravity calculated by the accelerometer. 
 Since we are dealing with low acceleration states, we can subtract 1 from the total magnitude and make calculations with minimal error. 
 The meat of the code lies in the "ticks" of the repetition. 
-There are four points where acceleration will be 0, the bottom of the rep, the middle of the concentric motion, the top of the concentric motion, and the middle of the eccentric motion. This is because we are encouraging paused repetitions which imcreases muscle usage. 
-The condtionals uses these checkpoints and keeps count whether it is at the top or bottom of the rep. Then divides this value by two to track the number of reps. 
+There are four points where acceleration will be 0, the bottom of the rep, the middle of the concentric motion, the top of the concentric motion, and the middle of the eccentric motion. This is because we are encouraging paused repetitions which increases muscle usage. 
+The conditionals uses these checkpoints and keeps count whether it is at the top or bottom of the rep. Then divides this value by two to track the number of reps. 
 
 ### Updates:
 #### [11/16 Progress Report](website/11_16_Progress_Report.md)
