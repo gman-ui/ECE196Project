@@ -63,6 +63,8 @@ The conditionals uses these checkpoints and keeps count whether it is at the top
 
 ### [Video Demonstration](https://drive.google.com/file/d/1s5_zrb8chxxecz5kb8jw5V9imzpqXm9z/view?usp=sharing)
 
+### [Workshop on Integration of Arduino Bluetooth and iOS](https://docs.google.com/document/d/1at55d75voQxrqGH7_nYEciQiIRhVsbvdy7yc5qf2bl4/edit?usp=sharing)
+
 ### Going Forward:
 Overall, we are satisfied with how our project turned out, given the time constraint. If we had more than 5 weeks, we would want to:
   * Improve rep counting algorithm
