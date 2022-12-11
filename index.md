@@ -35,7 +35,7 @@ PCB Design(Left), CAD Model + PCB (Middle), Seeed nRF52480 Sense (Right)
 Using a Seeed nRF52840, we were able to create a compact bluetooth system to measure repetitions via embedded acceleration calculations.
 
 ### Software Application: 
-Using SwiftUI, we created an iOS app that provides monitoring of the user’s repetitions based on data sent by the device and provides positive or negative comments based on the user’s preference. 
+Using SwiftUI, we created an iOS app that provides monitoring of the user’s repetitions based on data sent by the device and provides positive or negative comments based on the user’s preference. Our workshop, linked below, demonstrates how we integrated bluetooth into our app design and how it sent and received data.
 
 ### Behind the Arduino
 How exactly does the IMU track repetitions? 
