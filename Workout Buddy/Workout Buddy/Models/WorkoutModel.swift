@@ -112,7 +112,6 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
         }
     }
     
-    
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected.")
         
@@ -211,8 +210,7 @@ class WorkoutModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     }
     
     private func loadLocation(data: Data) -> Int {
-        return
-        Int( data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
+        return Int( data.withUnsafeBytes({ (rawPtr: UnsafeRawBufferPointer) in
             return rawPtr.load(as: UInt8.self)
         })
         )
